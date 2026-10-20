@@ -1,0 +1,21 @@
+{
+  "name": "plinth-rentals",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Plinth — an immersive rental agency website built with Next.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "framer-motion": "^12.0.0",
+    "lenis": "^1.1.20",
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}
