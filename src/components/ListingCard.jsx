@@ -5,11 +5,22 @@ import { bedsLabel, money } from "@/lib/format";
 
 export default function ListingCard({ listing: l, variant = "grid", priority = false }) {
   const area = areaBySlug[l.area];
+  const photo = l.photos && l.photos.length > 0 ? l.photos[0] : (l.photo || `/images/listings/${l.slug}.jpg`);
+
   return (
     <article className={`card card--${variant}`}>
       <Link href={`/listings/${l.slug}`} className="card__link" aria-label={`${l.title}, ${area.name}, ${money(l.rent)} per month`}>
         <div className="card__media">
-          <RoomScene art={l.art} uid={`${l.slug}-${variant}`} label="" />
+          {photo ? (
+            <img
+              src={photo}
+              alt={l.title}
+              className="card__img"
+              loading={priority ? "eager" : "lazy"}
+            />
+          ) : (
+            <RoomScene art={l.art} uid={`${l.slug}-${variant}`} label="" />
+          )}
           <div className="card__tags">
             {l.tags.map((t) => (
               <span key={t} className="tag">{t}</span>

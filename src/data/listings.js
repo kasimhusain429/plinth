@@ -1,9 +1,5 @@
-// Sample listings. Replace with a CMS / database / API later — every component
-// reads from this shape, so only this file (and lib/filters.js) needs to change.
-//
-// `art` drives the generated room illustration. To use real photography, add
-// `photos: ["/photos/my-home-1.jpg", ...]` and swap <RoomScene> for <img> in
-// ListingCard / ListingGallery.
+// Sample listings with high-resolution photography and generative room illustration fallbacks.
+// To use real photography, photos is an array of public paths.
 
 export const listings = [
   {
@@ -20,6 +16,11 @@ export const listings = [
       "Two bright bedrooms and an open living room with tall windows onto a shared courtyard. The kitchen is fully equipped and the balcony catches the late sun. The market and the cafés are a short walk away.",
     features: ["High ceilings", "Balcony", "Fully equipped kitchen", "Washer-dryer", "Fibre internet"],
     art: { palette: "clay", window: "arch", furn: "sofa", sun: 0.35, seed: 11 },
+    photos: [
+      "/images/listings/vracar-courtyard-two-bed.jpg",
+      "/images/listings/gallery/bedroom-arch.jpg",
+      "/images/listings/gallery/kitchen-stone.jpg",
+    ],
   },
   {
     slug: "dorcol-danube-light-loft",
@@ -35,6 +36,11 @@ export const listings = [
       "A true loft: a double-height living space with a mezzanine bedroom above and an open designer kitchen below. Underfloor heating keeps winters comfortable, and pets are welcome.",
     features: ["Double-height windows", "Mezzanine bedroom", "Designer kitchen", "Underfloor heating", "Lift"],
     art: { palette: "dusk", window: "grid", furn: "desk", sun: 0.6, seed: 23 },
+    photos: [
+      "/images/listings/dorcol-danube-light-loft.jpg",
+      "/images/listings/gallery/terrace-view.jpg",
+      "/images/listings/gallery/kitchen-island.jpg",
+    ],
   },
   {
     slug: "new-belgrade-studio-on-the-green",
@@ -50,6 +56,11 @@ export const listings = [
       "Everything you need in one smart room: built-in storage, a sleeping nook and a balcony that looks over the park. Short minimum term makes it ideal for a first month or two in the city.",
     features: ["Park views", "Balcony", "Parking space", "Built-in storage", "Lift"],
     art: { palette: "sage", window: "round", furn: "bed", sun: 0.5, seed: 5 },
+    photos: [
+      "/images/listings/new-belgrade-studio-on-the-green.jpg",
+      "/images/listings/gallery/workspace-light.jpg",
+      "/images/listings/gallery/terrace-view.jpg",
+    ],
   },
   {
     slug: "senjak-corner-three-bed",
@@ -65,6 +76,11 @@ export const listings = [
       "A generous family apartment with windows on two sides, a separate kitchen with a dining nook and two full bathrooms. Unfurnished, with private parking and a storage room in the building.",
     features: ["Light on two sides", "Two bathrooms", "Private parking", "Storage room", "Quiet street"],
     art: { palette: "sand", window: "twin", furn: "dining", sun: 0.4, seed: 31 },
+    photos: [
+      "/images/listings/senjak-corner-three-bed.jpg",
+      "/images/listings/gallery/dining-oak.jpg",
+      "/images/listings/gallery/bedroom-minimal.jpg",
+    ],
   },
   {
     slug: "savamala-riverside-one-bed",
@@ -80,6 +96,11 @@ export const listings = [
       "A stylish one-bedroom in the heart of Savamala with exposed brickwork, air conditioning and an open-plan kitchen. Furnished and ready for you to unpack.",
     features: ["Exposed brick", "Open-plan kitchen", "Air conditioning", "Riverside location", "Lift"],
     art: { palette: "sea", window: "arch", furn: "bed", sun: 0.7, seed: 41 },
+    photos: [
+      "/images/listings/savamala-riverside-one-bed.jpg",
+      "/images/listings/gallery/bedroom-arch.jpg",
+      "/images/listings/gallery/bathroom-marble.jpg",
+    ],
   },
   {
     slug: "zemun-garden-flat-by-the-quay",
@@ -95,6 +116,11 @@ export const listings = [
       "Two bedrooms opening onto a private garden — easy for pets, easy for summer evenings. Unfurnished, with a separate kitchen, off-street parking and the quay a few minutes away on foot.",
     features: ["Private garden", "Pet-friendly", "Parking", "Separate kitchen", "Near the quay"],
     art: { palette: "sage", window: "twin", furn: "sofa", sun: 0.3, seed: 53 },
+    photos: [
+      "/images/listings/zemun-garden-flat-by-the-quay.jpg",
+      "/images/listings/gallery/dining-oak.jpg",
+      "/images/listings/gallery/terrace-view.jpg",
+    ],
   },
   {
     slug: "vracar-rooftop-penthouse",
@@ -110,6 +136,11 @@ export const listings = [
       "The top floor, all to yourself: three bedrooms, two bathrooms and a terrace that wraps around the living space. Fully furnished, with two parking spaces and smart heating throughout.",
     features: ["Wraparound terrace", "City views", "Two parking spaces", "Smart heating", "Private lift access"],
     art: { palette: "rose", window: "round", furn: "sofa", sun: 0.55, seed: 67 },
+    photos: [
+      "/images/listings/vracar-rooftop-penthouse.jpg",
+      "/images/listings/gallery/terrace-view.jpg",
+      "/images/listings/gallery/kitchen-island.jpg",
+    ],
   },
   {
     slug: "dorcol-quiet-studio-near-the-fortress",
@@ -125,6 +156,11 @@ export const listings = [
       "A well-planned studio with a proper workspace, a comfortable bed and a full kitchenette, on a quiet street close to the fortress park. Fibre internet is already set up.",
     features: ["Steps from the park", "Workspace", "Fully furnished", "Fibre internet", "Quiet street"],
     art: { palette: "dusk", window: "arch", furn: "desk", sun: 0.25, seed: 73 },
+    photos: [
+      "/images/listings/dorcol-quiet-studio-near-the-fortress.jpg",
+      "/images/listings/gallery/workspace-light.jpg",
+      "/images/listings/gallery/bedroom-minimal.jpg",
+    ],
   },
   {
     slug: "new-belgrade-family-flat-with-parking",
@@ -140,6 +176,11 @@ export const listings = [
       "A practical, bright family home: three bedrooms, two bathrooms, two balconies and a garage space. Schools, shops and green space are all close by. Unfurnished.",
     features: ["Two balconies", "Garage space", "Cellar storage", "Near schools and parks", "Lift"],
     art: { palette: "sand", window: "grid", furn: "dining", sun: 0.5, seed: 83 },
+    photos: [
+      "/images/listings/new-belgrade-family-flat-with-parking.jpg",
+      "/images/listings/gallery/dining-oak.jpg",
+      "/images/listings/gallery/kitchen-stone.jpg",
+    ],
   },
   {
     slug: "savamala-brick-arch-loft",
@@ -155,6 +196,11 @@ export const listings = [
       "A former workshop turned two-bedroom loft: original brick arches, very high ceilings and a kitchen island that anchors the living space. Furnished with a mix of vintage and new pieces.",
     features: ["Original brick arches", "Six-metre ceilings", "Kitchen island", "Creative-quarter location", "Pet-friendly"],
     art: { palette: "clay", window: "twin", furn: "desk", sun: 0.65, seed: 97 },
+    photos: [
+      "/images/listings/savamala-brick-arch-loft.jpg",
+      "/images/listings/gallery/kitchen-island.jpg",
+      "/images/listings/gallery/bedroom-arch.jpg",
+    ],
   },
   {
     slug: "senjak-tree-line-two-bed",
@@ -170,6 +216,11 @@ export const listings = [
       "Two calm bedrooms and a living room that opens onto a balcony level with the treetops. Furnished, with built-in wardrobes, a parking space and parkland close by.",
     features: ["Treetop balcony", "Parkland nearby", "Parking", "Built-in wardrobes", "Quiet building"],
     art: { palette: "sea", window: "round", furn: "sofa", sun: 0.45, seed: 101 },
+    photos: [
+      "/images/listings/senjak-tree-line-two-bed.jpg",
+      "/images/listings/gallery/bedroom-minimal.jpg",
+      "/images/listings/gallery/terrace-view.jpg",
+    ],
   },
   {
     slug: "zemun-hillside-house",
@@ -185,6 +236,11 @@ export const listings = [
       "A two-bedroom house with character: a terrace for the morning coffee, a small garden and room to park. Unfurnished, with original details and a wood-burning stove.",
     features: ["Small garden", "Terrace", "Private parking", "Wood-burning stove", "Pet-friendly"],
     art: { palette: "rose", window: "arch", furn: "dining", sun: 0.5, seed: 113 },
+    photos: [
+      "/images/listings/zemun-hillside-house.jpg",
+      "/images/listings/gallery/dining-oak.jpg",
+      "/images/listings/gallery/terrace-view.jpg",
+    ],
   },
 ];
 

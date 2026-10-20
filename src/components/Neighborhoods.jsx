@@ -26,6 +26,13 @@ export default function Neighborhoods() {
           </p>
 
           <div className="areas__card" aria-live="polite">
+            <div className="areas__card-media">
+              <img
+                src={area.image || `/images/neighborhoods/${area.slug}.jpg`}
+                alt={`${area.name} neighborhood`}
+                className="areas__card-img"
+              />
+            </div>
             <h3 className="areas__name">{area.name}</h3>
             <p>{area.blurb}</p>
             <p className="areas__stat">

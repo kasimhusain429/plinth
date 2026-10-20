@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { HeroScene } from "./Scene";
 import HeroSearch from "./HeroSearch";
 import { Arrow } from "./Icons";
 import { listings } from "@/data/listings";
@@ -37,7 +36,11 @@ export default function Hero() {
       <div className="hero__sticky">
         <motion.div className="hero__arch" style={{ "--p": p }}>
           <motion.div className="hero__scene" style={{ scale: sceneScale }}>
-            <HeroScene />
+            <img
+              src="/images/hero/hero-main.jpg"
+              alt="Plinth — Sunlit European living space overlooking the river"
+              className="hero__img"
+            />
           </motion.div>
           <div className="hero__shade" />
         </motion.div>

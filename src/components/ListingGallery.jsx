@@ -6,6 +6,8 @@ import { RoomScene } from "./Scene";
 const WINDOW_CYCLE = ["arch", "round", "twin", "grid"];
 const FURN_CYCLE = ["sofa", "bed", "desk", "dining"];
 
+const PHOTO_LABELS = ["Living space", "Bedroom & quiet space", "Kitchen & dining", "Terrace & light"];
+
 /** Three “views” of the same home, generated from the listing's art settings. */
 function views(art) {
   const wi = WINDOW_CYCLE.indexOf(art.window);
@@ -18,19 +20,35 @@ function views(art) {
 }
 
 export default function ListingGallery({ listing }) {
-  const items = views(listing.art);
+  const hasPhotos = Array.isArray(listing.photos) && listing.photos.length > 0;
+  const items = hasPhotos
+    ? listing.photos.map((src, idx) => ({
+        src,
+        label: PHOTO_LABELS[idx] || `View ${idx + 1}`,
+      }))
+    : views(listing.art);
+
   const [i, setI] = useState(0);
 
   return (
     <div className="gallery">
       <div className="gallery__main" aria-live="polite">
-        <RoomScene
-          key={i}
-          art={items[i].art}
-          uid={`${listing.slug}-g${i}`}
-          className="gallery__scene"
-          label={`${listing.title} — ${items[i].label}`}
-        />
+        {hasPhotos ? (
+          <img
+            key={i}
+            src={items[i].src}
+            alt={`${listing.title} — ${items[i].label}`}
+            className="gallery__photo"
+          />
+        ) : (
+          <RoomScene
+            key={i}
+            art={items[i].art}
+            uid={`${listing.slug}-g${i}`}
+            className="gallery__scene"
+            label={`${listing.title} — ${items[i].label}`}
+          />
+        )}
       </div>
       <div className="gallery__thumbs" role="group" aria-label="Choose a view">
         {items.map((v, n) => (
@@ -41,7 +59,11 @@ export default function ListingGallery({ listing }) {
             aria-pressed={n === i}
             onClick={() => setI(n)}
           >
-            <RoomScene art={v.art} uid={`${listing.slug}-t${n}`} label="" />
+            {hasPhotos ? (
+              <img src={v.src} alt="" className="gallery__thumb-img" />
+            ) : (
+              <RoomScene art={v.art} uid={`${listing.slug}-t${n}`} label="" />
+            )}
             <span>{v.label}</span>
           </button>
         ))}

@@ -37,6 +37,9 @@ export const metadata = {
     images: [{ url: "/og.png", width: 1200, height: 630, alt: `${site.name} rental agency` }],
   },
   twitter: { card: "summary_large_image" },
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export const viewport = {

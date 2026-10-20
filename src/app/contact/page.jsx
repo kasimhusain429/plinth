@@ -1,6 +1,6 @@
 import PageHero from "@/components/PageHero";
 import InquiryForm from "@/components/InquiryForm";
-import { site } from "@/data/site";
+import { site, agents } from "@/data/site";
 
 export const metadata = {
   title: "Contact & inquiries",
@@ -34,6 +34,30 @@ export default async function ContactPage({ searchParams }) {
               handover.
             </p>
           </aside>
+        </div>
+      </section>
+
+      <section className="section agents-section">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">Our team</p>
+            <h2 className="h2">Leasing advisors who know every <em>corner</em> of Belgrade.</h2>
+          </div>
+          <div className="agents__grid">
+            {agents.map((agent) => (
+              <article key={agent.name} className="agent-card">
+                <div className="agent-card__media">
+                  <img src={agent.image} alt={agent.name} className="agent-card__img" loading="lazy" />
+                </div>
+                <div className="agent-card__body">
+                  <h3 className="agent-card__name">{agent.name}</h3>
+                  <p className="agent-card__role">{agent.role}</p>
+                  <p className="agent-card__bio">{agent.bio}</p>
+                  <a href={`tel:${agent.phone.replace(/\s+/g, "")}`} className="agent-card__phone">{agent.phone}</a>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </>
